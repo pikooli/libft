@@ -35,10 +35,11 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (s1[lenght])
 		lenght++;
-	if (!(dest = malloc(sizeof(char) * lenght + 1)))
+	if (!(dest = malloc(sizeof(char) * (lenght + 1)))
 		return (0);
 	while (ft_detectset(s1[a], set) && s1[a])
 		a++;
+	lenght--;
 	while (ft_detectset(s1[lenght], set) && lenght > a)
 		lenght--;
 	i = 0;
