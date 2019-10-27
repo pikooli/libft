@@ -6,7 +6,7 @@
 /*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 16:51:56 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/13 15:25:08 by paszhang         ###   ########.fr       */
+/*   Updated: 2019/10/22 13:53:26 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_list	*ft_lstnewone(void *content)
 	return (new);
 }
 
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void*))
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *begin;
 	t_list *new;
@@ -39,7 +39,10 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void*))
 	while (lst)
 	{
 		if (!(new = ft_lstnewone((*f)(lst->content))))
+		{
+			ft_lstclear(&begin, (*del));
 			return (0);
+		}
 		tmp->next = new;
 		tmp = new;
 		lst = lst->next;

@@ -6,7 +6,7 @@
 /*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:35:02 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/14 17:44:25 by paszhang         ###   ########.fr       */
+/*   Updated: 2019/10/22 13:48:39 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (s1[lenght])
 		lenght++;
-	if (!(dest = malloc(sizeof(char) * (lenght + 1)))
+	if (!(dest = malloc(sizeof(char) * (lenght + 1))))
 		return (0);
 	while (ft_detectset(s1[a], set) && s1[a])
 		a++;

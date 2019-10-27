@@ -6,7 +6,7 @@
 /*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:45:39 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/14 17:27:13 by paszhang         ###   ########.fr       */
+/*   Updated: 2019/10/22 13:51:22 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void
+		(*del)(void *));
 
 #endif
