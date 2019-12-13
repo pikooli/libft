@@ -58,7 +58,7 @@ static	char	*asign(char const *str, char charset, int *i)
 	return (dest);
 }
 
-int	ft_free(char **str)
+char	**ft_free(char **str)
 {
 	int i;
 
