@@ -61,14 +61,14 @@ static	char	*asign(char const *str, char charset, int *i)
 int	ft_free(char **str)
 {
 	int i;
-	
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		free(str[i++]);
 	free(str);
 	return (0);
 }
-	
+
 char			**ft_split(char const *s, char c)
 {
 	int ncut;
