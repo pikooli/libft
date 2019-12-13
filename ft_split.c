@@ -58,6 +58,17 @@ static	char	*asign(char const *str, char charset, int *i)
 	return (dest);
 }
 
+int	ft_free(char **str)
+{
+	int i;
+	
+	i = 0;
+	while(str[i])
+		free(str[i++]);
+	free(str);
+	return (0);
+}
+	
 char			**ft_split(char const *s, char c)
 {
 	int ncut;
@@ -72,7 +83,8 @@ char			**ft_split(char const *s, char c)
 		return (0);
 	while (s[i])
 	{
-		dest[a] = asign(s, c, &i);
+		if (!(dest[a] = asign(s, c, &i)))
+			return (ft_free(dest));
 		if (dest[a][0] != '\0')
 			a++;
 		else
