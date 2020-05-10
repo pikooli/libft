@@ -9,87 +9,80 @@
 /*   Updated: 2019/10/11 14:22:42 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-static int		compare(char str, char charset)
+char	**ft_free_tab_num(int size, char **tab)
 {
-	if (str == charset)
-		return (1);
-	return (0);
+	int i;
+
+	i = 0;
+	while (i < size)
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
 }
 
-static	int		nbcut(char const *str, char charset)
+int		ft_count_split(char const *str, char cara)
 {
-	int count;
 	int i;
+	int nb;
 
 	i = -1;
-	count = 0;
+	nb = 0;
 	while (str[++i])
 	{
-		if (!compare(str[i], charset) && i == 0)
-			count++;
-		else if (compare(str[i], charset))
-			if (!compare(str[i - 1], charset))
-				count++;
+		if (i == 0 && str[i] != cara)
+			nb++;
+		else if (str[i] != cara && str[i - 1] == cara)
+			nb++;
 	}
-	return (count);
+	return (nb);
 }
 
-static	char	*asign(char const *str, char charset, int *i)
+char	*ft_copy_to_cara(int *i, char const *str, char cara)
 {
-	int a;
-	char*dest;
-	int b;
+	int		j;
+	char	*ret;
 
-	b = 0;
-	a = 0;
-	while (!compare(str[a + *i], charset) && str[a + *i])
-		a++;
-	if (!(dest = malloc(sizeof(char) * (a + 1))))
-		return (0);
-	while (b < a)
+	j = 0;
+	while (str[*i + j] && str[*i + j] != cara)
+		j++;
+	if (!(ret = malloc(sizeof(char) * (j + 1))))
+		return (NULL);
+	j = 0;
+	while (str[*i + j] && str[*i + j] != cara)
 	{
-		dest[b++] = str[*i];
-		*i = *i + 1;
+		ret[j] = str[*i + j];
+		j++;
 	}
-	dest[b] = '\0';
-	return (dest);
+	ret[j] = '\0';
+	*i += j;
+	return (ret);
 }
 
-char	**ft_free(char **str)
+char	**ft_split(char const *str, char cara)
 {
-	int i;
+	char	**ret;
+	int		i;
+	int		j;
 
+	i = ft_count_split(str, cara);
+	if (!(ret = malloc(sizeof(char*) * (i + 1))))
+		return (NULL);
 	i = 0;
+	j = 0;
 	while (str[i])
-		free(str[i++]);
-	free(str);
-	return (0);
-}
-
-char			**ft_split(char const *s, char c)
-{
-	int ncut;
-	int i;
-	int a;
-	char**dest;
-
-	i = 0;
-	a = 0;
-	ncut = nbcut(s, c);
-	if (!(dest = malloc(sizeof(*dest) * (ncut + 1))))
-		return (0);
-	while (s[i])
 	{
-		if (!(dest[a] = asign(s, c, &i)))
-			return (ft_free(dest));
-		if (dest[a][0] != '\0')
-			a++;
+		if (!(ret[j] = ft_copy_to_cara(&i, str, cara)))
+			return (ft_free_tab_num(j, ret));
+		else if (ret[j][0] != '\0')
+			j++;
 		else
+		{
+			free(ret[j]);
 			i++;
+		}
 	}
-	dest[a] = 0;
-	return (dest);
+	ret[j] = NULL;
+	return (ret);
 }
