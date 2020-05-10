@@ -1,4 +1,43 @@
-SRC    = ft_memset.c \
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
+#    Updated: 2018/08/22 16:48:32 by vbrazhni         ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
+NAME = libft.a
+
+CC = gcc
+
+FLAGS = -Wall -Werror -Wextra -O3 -c
+
+INCLUDES = -I$(HEADERS_DIRECTORY)
+
+HEADERS_LIST = \
+	libft.h\
+
+HEADERS_DIRECTORY = ./includes/
+
+OBJECTS_DIRECTORY = objects/
+
+SOURCES_DIRECTORY = ./srcs/
+
+EXTEND_DIRECTORY = ./extend/
+
+SRC_EXTEND	= 	ft_base_10.c\
+				ft_putstr.c\
+				ft_putstrendl.c\
+				ft_zemalloc.c
+
+BON 	= 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c \
+			ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+
+SOURCES_LIST    = ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
@@ -31,42 +70,58 @@ SRC    = ft_memset.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c\
+		$(SRC_EXTEND)
 
-SRCS	= $(addprefix srcs/, $(SRC))
+SRCS_EXTEND = $(addprefix $(EXTEND_DIRECTORY), $(SRC_EXTEND))
 
-BON 	= 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c \
-			ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
-BONS	= $(addprefix srcs/, $(BON))
+OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
 
-OBJS    = ${SRCS:.c=.o}
+OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
-CC      = gcc -I ./includes
+HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
-CFLAGS  = -Wall -Wextra -Werror
+# COLORS
 
-BONU 	= 	${BONS:.c=.o}
+GREEN = \033[0;32m
+RED = \033[0;31m
+RESET = \033[0m
 
-NAME    = libft.a
+# MAKEFLAGS += -j
 
-.c.o :       ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.PHONY: all clean fclean re
 
-${NAME}		:	${OBJS}
-				ar rc ${NAME} ${OBJS}
-				ranlib ${NAME}
+all: $(NAME)
 
-all 		:   ${NAME}
+$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
+	@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
+	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
-bonus	 	: 	${BONU} ${OBJS}
-				ar rc ${NAME} ${BONU} ${OBJS}
-				ranlib ${NAME}
-clean 		:
-				rm -f ${OBJS} ${BONU}
+$(OBJECTS_DIRECTORY):
+	@mkdir -p $(OBJECTS_DIRECTORY)
+	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
-fclean 		:	clean
-				rm -f ${NAME}
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
+	@echo "$(GREEN).$(RESET)\c"
 
-re 			:   fclean all
+$(OBJECTS_DIRECTORY)%.o : $(EXTEND_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
+	@echo "$(GREEN).$(RESET)\c"
 
-.PHONY		:	all clean fclean re
+clean:
+	@rm -rf $(OBJECTS_DIRECTORY)
+	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
+	@echo "$(NAME): $(RED)object files were deleted$(RESET)"
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo "$(NAME): $(RED)$(NAME) was deleted$(RESET)"
+
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
