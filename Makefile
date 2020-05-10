@@ -42,7 +42,7 @@ BONS	= $(addprefix srcs/, $(BON))
 
 OBJS    = ${SRCS:.c=.o}
 
-CC      = gcc -I ../includes
+CC      = gcc -I ./includes
 
 CFLAGS  = -Wall -Wextra -Werror
 
