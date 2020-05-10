@@ -20,6 +20,12 @@
 # include <fcntl.h>
 # include <string.h>
 
+typedef enum
+{
+	false,
+	true
+}	t_bool;
+
 typedef struct	s_list
 {
 	void			*content;
