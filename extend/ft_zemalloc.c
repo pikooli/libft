@@ -15,9 +15,7 @@
 void	*ft_zemalloc(size_t size)
 {
 	void	*ptr;
-	size_t	i;
 
-	i = 0;
 	if ((ptr = malloc(size)))
 		ft_bzero(ptr, size);
 	return (ptr);
