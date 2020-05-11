@@ -29,10 +29,19 @@ SOURCES_DIRECTORY = ./srcs/
 
 EXTEND_DIRECTORY = ./extend/
 
-SRC_EXTEND	= 	ft_base_10.c\
-				ft_putstr.c\
-				ft_putstrendl.c\
-				ft_zemalloc.c
+SRC_EXTEND	=\
+ft_base_10.c\
+ft_isbase_16.c\
+ft_islower.c\
+ft_isnum.c\
+ft_isprefix.c\
+ft_isspace.c\
+ft_putstr.c\
+ft_putstrendl.c\
+ft_toupper.c\
+ft_zemalloc.c\
+ft_is_int.c\
+ft_putnbr.c
 
 BON 	= 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c \
 			ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrendl.c                                    :+:      :+:    :+:   */
+/*   ft_isbase_16.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 01:47:53 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/11 01:48:22 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:47:08 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/11 01:47:12 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrendl(const char *str)
+int		ft_isbase_to_16(char c, int base)
 {
-	if (!str)
-		return ;
-	while (*str)
-		write(1, str++, 1);
-	write(1, "\n", 1);
+	const char	*digits = "0123456789ABCDEF";
+	int			i;
+
+	i = 0;
+	while (i < base)
+	{
+		if (ft_toupper(c) == digits[i])
+			return (i);
+		i++;
+	}
+	return (-1);
 }

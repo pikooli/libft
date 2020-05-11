@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:45:39 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/22 13:51:22 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/11 01:58:03 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "libft_extend.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
@@ -79,5 +78,20 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void
 		(*del)(void *));
 
+/*
+**		extend
+*/
+
+int				ft_base_10(char *str);
+void			*ft_zemalloc(size_t size);
+void			ft_putstr(char *str);
+void			ft_putstrendl(const char *str);
+int				ft_isspace(int c);
+int				ft_toupper(int c);
+int				ft_isbase_to_16(char c, int base);
+t_bool			ft_isprefix(const char *str, int base);
+t_bool			ft_isnum(char *str, int base);
+int				ft_is_int(char *str);
+void			ft_putnbr(int numb);
 
 #endif

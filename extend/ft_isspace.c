@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrendl.c                                    :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 01:47:53 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/11 01:48:22 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:53:03 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/11 01:56:27 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrendl(const char *str)
+int		ft_isspace(int c)
 {
-	if (!str)
-		return ;
-	while (*str)
-		write(1, str++, 1);
-	write(1, "\n", 1);
+	return (c == '\t' ||
+			c == '\n' ||
+			c == '\v' ||
+			c == '\f' ||
+			c == '\r' ||
+			c == ' ');
 }

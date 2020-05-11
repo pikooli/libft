@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrendl.c                                    :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 01:47:53 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/11 01:48:22 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:47:40 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/11 01:47:43 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrendl(const char *str)
+int		ft_toupper(int c)
 {
-	if (!str)
-		return ;
-	while (*str)
-		write(1, str++, 1);
-	write(1, "\n", 1);
+	return (ft_islower(c) ? (c - 'a' + 'A') : c);
 }

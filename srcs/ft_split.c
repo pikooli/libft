@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/05 18:59:01 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/11 14:22:42 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:59:02 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/11 01:59:22 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	**ft_free_tab_num(int size, char **tab)
