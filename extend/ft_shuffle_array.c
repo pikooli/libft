@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrnb.c                                      :+:      :+:    :+:   */
+/*   ft_shuffle_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/17 00:16:47 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 00:16:48 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/17 00:16:56 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 00:17:54 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrnb(const char *str, int nb)
+void	ft_shuffle_array(int *array, int size)
 {
-	ft_putstr(str);
-	ft_putstr(" : ");
-	ft_putnbr(nb);
-	ft_putstr("\n");
+	int i;
+	int tmp;
+	int j;
+
+	i = -1;
+	if (size < 1)
+		return ;
+	while (++i < size)
+	{
+		j = i + ft_randnumb(size - i);
+		tmp = array[j];
+		array[j] = array[i];
+		array[i] = tmp;
+	}
 }

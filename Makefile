@@ -6,7 +6,7 @@
 #    By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2020/05/16 23:23:13 by paszhang         ###   ########.fr        #
+#    Updated: 2020/05/17 00:15:45 by paszhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ ft_zemalloc.c\
 ft_is_int.c\
 ft_putnbr.c\
 ft_randnumb.c\
-ft_putstrnb.c
+ft_putstrnb.c\
+ft_shuffle_array.c
+
 
 SRC_PRINTF	=\
 			ft_conversion.c\
