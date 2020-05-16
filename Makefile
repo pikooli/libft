@@ -6,7 +6,7 @@
 #    By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2020/05/16 21:56:32 by paszhang         ###   ########.fr        #
+#    Updated: 2020/05/16 22:55:28 by paszhang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ SOURCES_DIRECTORY = ./srcs/
 
 EXTEND_DIRECTORY = ./extend/
 
+PRINTF_DIRECTORY = ./printf/
+
+
 SRC_EXTEND	=\
 ft_base_10.c\
 ft_isbase_16.c\
@@ -43,6 +46,11 @@ ft_zemalloc.c\
 ft_is_int.c\
 ft_putnbr.c\
 ft_randnumb.c
+
+SRC_PRINTF	=\
+			ft_conversion.c\
+			ft_printf.c
+
 
 BON 	= 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c \
 			ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
@@ -81,9 +89,12 @@ SOURCES_LIST    = ft_memset.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c\
-		$(SRC_EXTEND)
+		$(SRC_EXTEND)\
+		$(SRC_PRINTF)
 
 SRCS_EXTEND = $(addprefix $(EXTEND_DIRECTORY), $(SRC_EXTEND))
+
+SRCS_PRINTF = $(addprefix $(PRINTF_DIRECTORY), $(SRC_PRINTF))
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
@@ -123,6 +134,9 @@ $(OBJECTS_DIRECTORY)%.o : $(EXTEND_DIRECTORY)%.c $(HEADERS)
 	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
 	@echo "$(GREEN).$(RESET)\c"
 
+$(OBJECTS_DIRECTORY)%.o : $(PRINTF_DIRECTORY)%.c $(HEADERS)
+	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
+	@echo "$(GREEN).$(RESET)\c"
 clean:
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
