@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:45:39 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/16 23:02:09 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/16 23:24:11 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void
 
 int				ft_base_10(char *str);
 void			*ft_zemalloc(size_t size);
-void			ft_putstr(char *str);
+void			ft_putstr(const char *str);
 void			ft_putstrendl(const char *str);
 int				ft_isspace(int c);
 int				ft_toupper(int c);
@@ -96,6 +96,7 @@ t_bool			ft_isnum(char *str, int base);
 int				ft_is_int(char *str);
 void			ft_putnbr(int numb);
 int				ft_randnumb(int max);
+void			ft_putstrnb(const char *str, int nb);
 
 /*
 **		printf
