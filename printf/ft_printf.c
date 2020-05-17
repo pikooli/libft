@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 22:51:38 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/16 23:14:23 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 11:49:42 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,15 @@ static int		ft_conv(va_list ap, char c, int offset, int point)
 	if (c == 'd')
 	{
 		nd = (long long)va_arg(ap, int);
-		nbr = ft_offset(offset, point, ft_conv_d(nd, 0));
-		i = i < 0 ? -i : i;
-		ft_conv_d(nd, i);
+		i = ft_conv_d(nd, 0);
+		nbr = ft_offset(offset, point, i);
+		i = i < 0 ? ft_conv_d(nd, -i) : ft_conv_d(nd, i);
 	}
 	if (c == 'x')
 	{
 		nx = (unsigned int)va_arg(ap, int);
-		i += ft_offset(offset, point, ft_conv_x(nx, 0));
+		i = ft_conv_d(nd, 0);
+		i += ft_offset(offset, point, i);
 		ft_conv_x(nx, i);
 	}
 	return (i + nbr);
