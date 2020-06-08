@@ -7,7 +7,11 @@ To help you doing that, you can only use some basic function :
 >Read();
 >malloc();
 >free();
+
 What learn:
+> Better undestanding in C language, some algorithme logic.<br/>
+Rigor in coding<br/>
+New function<br/>
 
 
 
