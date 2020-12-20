@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ishexa.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pascal <pascal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 15:30:45 by paszhang          #+#    #+#             */
-/*   Updated: 2020/12/20 22:41:19 by pascal           ###   ########.fr       */
+/*   Created: 2020/12/20 22:37:39 by pascal            #+#    #+#             */
+/*   Updated: 2020/12/20 22:40:50 by pascal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_ishexa(char c)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	if ((c >= '0' && c <= '9') ||
-	(c >= 'a' && c <= 'f') ||
-	(c >= 'A' && c <= 'F'))
-		return (1);
-	return (0);
+	int i;
+
+	while (src[i])
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }

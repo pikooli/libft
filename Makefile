@@ -6,7 +6,7 @@
 #    By: pascal <pascal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2020/12/20 19:27:20 by pascal           ###   ########.fr        #
+#    Updated: 2020/12/20 22:41:54 by pascal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ ft_validnumber.c\
 ft_putcolor.c\
 ft_free_tab.c\
 ft_strcmp.c\
-ft_ishexa.c
+ft_ishexa.c\
+ft_strcpy.c
 
 SRC_PRINTF	=\
 			ft_conversion.c\
