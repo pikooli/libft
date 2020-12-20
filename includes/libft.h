@@ -6,7 +6,7 @@
 /*   By: pascal <pascal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:45:39 by paszhang          #+#    #+#             */
-/*   Updated: 2020/12/20 18:22:44 by pascal           ###   ########.fr       */
+/*   Updated: 2020/12/20 19:07:50 by pascal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int				ft_randnumb(int max);
 void			ft_putstrnb(const char *str, int nb);
 void			ft_shuffle_array(int *array, int size);
 int				ft_valid_number(char *str);
-void			ft_putcolor(int i);
+void			ft_putcolor(char *color);
 int				ft_free_tab(char **tab);
 int				ft_strcmp(const char *s1, const char *s2);
 
