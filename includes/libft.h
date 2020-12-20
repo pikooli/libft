@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pascal <pascal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:45:39 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 00:15:58 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/12/20 17:51:13 by pascal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ void			ft_putnbr(int numb);
 int				ft_randnumb(int max);
 void			ft_putstrnb(const char *str, int nb);
 void			ft_shuffle_array(int *array, int size);
-
+int				ft_valid_number(char *str);
+void			ft_putcolor(int i);
 /*
 **		printf
 */

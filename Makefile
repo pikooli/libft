@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+         #
+#    By: pascal <pascal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/05 13:39:23 by vbrazhni          #+#    #+#              #
-#    Updated: 2020/05/17 00:15:45 by paszhang         ###   ########.fr        #
+#    Updated: 2020/12/20 17:51:55 by pascal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ ft_is_int.c\
 ft_putnbr.c\
 ft_randnumb.c\
 ft_putstrnb.c\
-ft_shuffle_array.c
+ft_shuffle_array.c\
+ft_validnumber.c\
+ft_putcolor.c
 
 
 SRC_PRINTF	=\
